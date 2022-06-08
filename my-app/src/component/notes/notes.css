@@ -14,4 +14,10 @@
     align-items: center;
     border: solid 1px wheat;
     color: #fff;
+    flex-direction: column;
+}
+.content-container .list-content{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Bar from '../bar/bar';
+import Note from '../note/note';
 import './notes.css';
 
 const BoxContent = (props) =>{
@@ -8,12 +9,20 @@ const BoxContent = (props) =>{
         return (
             <div className="box-content">
             <h3>Catatan Arsip</h3>
+            <div className='list-content'>
+                <Note arsip={true}/>
+                <Note arsip={true}/>
+            </div>
             </div>
         )
     }
     return(
         <div className="box-content">
         <h3>Catatan Aktif</h3>
+        <div className='list-content'>
+            <Note arsip={false}/>
+        </div>
+            
         </div>
     )
 }
