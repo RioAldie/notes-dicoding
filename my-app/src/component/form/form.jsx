@@ -1,25 +1,36 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { DataCtx } from '../../context/DataContext';
+import { getInitialData } from '../../utils/db';
 import './form.css';
 
-export default function Form(){
+export default function Form(props){
     const [title,setTitle] = useState('');
     const [content, setContent] = useState('');
     const [note, setNote] = useState({});
-
-    function handleNote(e){
+    const {data, setData} = useContext(DataCtx);
+    const initialData = getInitialData();
+    const {datachange,setDatachange} = props;
+    const handleNote = (e) =>{
         e.preventDefault();
 
-        setNote({
+        const newdata = {
             id: new Date().getTime(),
             title: title,
-            content: content,
-            date: new Date()
-        })
+            body: content,
+            date: new Date(),
+            archived: false
+        };
+        setTimeout(()=>{
+            data.push(newdata);
+            console.log('save data success',newdata);
+            setDatachange(!datachange);
+        },[500]);
+        
         e.target.title.value = '';
         e.target.content.value = '';
     }
     useEffect(()=>{
-        console.log('note:' ,note);
+        console.log(data)
     },[note]);
 
     return(

@@ -1,22 +1,54 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { DataCtx } from '../../context/DataContext';
 import { getInitialData } from '../../utils/db';
 import Bar from '../bar/bar';
 import Note from '../note/note';
 import './notes.css';
 
+const NullContent = () =>{
+    return(
+        <div className='list-content'>
+            <p>Tidak ada catatan</p>
+        </div>
+        )
+}
 const BoxContent = (props) =>{
     const {content} = props;
-    const data = getInitialData();
+    const {data,setData} = useContext(DataCtx);
+    const [datanote, setDatanote] = useState(data);
+    const handleListContent =(archived) =>{
+        if(data.length < 1){
+            return <NullContent/>
+        }
+        console.log(data.length);
+        if(archived){
+             return  datanote.map((data)=>{
+                if(data.archived){
+                    return(<Note key={data.id}title={data.title} body={data.body} archived={data.archived} date={data.createdAt}/>)
+                }
+            })
+        }
+        if(!archived){
+            return  datanote.map((data)=>{
+                if(!data.archived){
+                    return(<Note key={data.id}title={data.title} body={data.body} archived={data.archived} date={data.createdAt}/>)
+                }
+            })
+        }
+           
+        
+    }
+    useEffect(()=>{
+        setDatanote(data);
+    },[data,datanote])
+
     if(content === 'arsip'){
         return (
             <div className="box-content">
             <h3>Catatan Arsip</h3>
             <div className='list-content'>
-            {   data.map((data)=>{
-                    if(data.archived){
-                        return(<Note key={data.id}title={data.title} body={data.body} archived={data.archived} date={data.createdAt}/>)
-                    }
-                })
+            {   
+                handleListContent(true)
             }
             </div>
             </div>
@@ -27,12 +59,7 @@ const BoxContent = (props) =>{
         <h3>Catatan Aktif</h3>
         <div className='list-content'>
             {
-                data.map((data)=>{
-                    if(!data.archived){
-                       return(<Note key={data.id}title={data.title} body={data.body} archived={data.archived} date={data.createdAt}/>)
-                   
-                    }
-                })
+                handleListContent(false)
             }
             
         </div>
@@ -41,18 +68,8 @@ const BoxContent = (props) =>{
     )
 }
 export default function Notes(){
-    const [content, setContent] = useState('arsip');
-    const datautils = getInitialData();
-    const myObj = {
-        id: 7,
-        title: "Modularization",
-        body: "Dalam konteks pemrograman JavaScript, modularization merupakan teknik dalam memecah atau menggunakan kode dalam berkas JavaScript secara terpisah berdasarkan tanggung jawabnya masing-masing.",
-        createdAt: '2022-04-14T04:27:34.572Z',
-        archived: false,
-    }
-    useEffect(()=>{
-      
-    },[content])
+    const [content, setContent] = useState('regular');
+  
     return(
         <>
             <section className="content-container">

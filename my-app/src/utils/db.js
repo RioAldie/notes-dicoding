@@ -52,6 +52,6 @@ const getInitialData = () => ([
     }
     return new Date(date).toLocaleDateString("id-ID", options)
   }
-  
+
   export { getInitialData, showFormattedDate };
   
