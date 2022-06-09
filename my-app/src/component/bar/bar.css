@@ -9,6 +9,7 @@
     align-self: center;
     border-radius: 10px;
     flex-wrap: wrap;
+    margin-top: 20px;
 }
 
 .box-bar .btn-reg{

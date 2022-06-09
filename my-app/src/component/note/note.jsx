@@ -19,19 +19,19 @@ const CardButton = (props)=>{
     )
 }
 export default function Note(props){
-    const {arsip} = props;
+    const {title,body,archived,date} = props;
 
     return(
         <div className="card-note">
             <div className='card-info'>
-                 <h5>Judul Catatan</h5>
-                 <h6>12/10/2022</h6>  
+                 <h5>{title}</h5>
+                 <h6>{date}</h6>  
             </div>
             <div className='card-content'>
-               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p> 
+               <p>{body}</p> 
             </div>
             
-            <CardButton arsip={arsip} />
+            <CardButton arsip={archived} />
         </div>
     )
 }
