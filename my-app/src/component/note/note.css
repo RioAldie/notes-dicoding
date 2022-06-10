@@ -70,17 +70,25 @@
     width: 80px;
     height: 36px;
     background: #000000;
-    color: #690000;
-    border: #690000 solid 2px;
+    color: #F00E0E;
+    border: #F00E0E solid 2px;
     border-radius: 5px;
     cursor: pointer;
+    transition: 0.5s;
 }
 .card-note .card-btn .btn-arsp{
     width: 80px;
     height: 36px;
     background: #000000;
-    color: #696a01;
-    border: #696a01 solid 2px;
+    color: #cdd013;
+    border: #cdd013 solid 2px;
     border-radius: 5px;
     cursor: pointer;
+    transition: 0.5s;
+}
+.btn-dlt:hover{
+    transform: scale(1.05);
+}
+.btn-arsp:hover{
+    transform: scale(1.05);
 }

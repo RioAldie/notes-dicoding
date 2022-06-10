@@ -1,27 +1,24 @@
 import { useContext, useEffect, useState } from 'react';
+import { ChangeCtx } from '../../context/ChangeContext';
 import { DataCtx } from '../../context/DataContext';
 import './note.css';
 
 const CardButton = (props)=>{
     const {arsip,idtarget} = props;
     const {data,setData} = useContext(DataCtx);
-    const [datachange, setDatachange] = useState(false);
+    const {datachange, setDatachange} = useContext(ChangeCtx);
     const handleDelete= ()=>{
        const dataFilter = data.filter(data => data.id !== idtarget);
        setData(dataFilter);
-       setDatachange(!datachange)
-       console.log(idtarget)
-       console.log(dataFilter)
+       setDatachange(!datachange);
     }
     const handleUpdate= ()=>{
         const targetIndex = data.findIndex((data => data.id === idtarget ));
-        data[targetIndex].archived = true;
-        setDatachange(!datachange)
-        console.log('after',data);
-   
+        data[targetIndex].archived = !data[targetIndex].archived;
+        setDatachange(!datachange);
     }
     useEffect(()=>{
-        
+        setDatachange(!datachange)
     },[handleDelete,handleUpdate,data,setDatachange])
     if(arsip){
         return(

@@ -4,7 +4,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    border: solid 1px #bfbfbf;
     margin-top: 20px;
 }
 .content-container .box-content{
@@ -21,4 +20,15 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    margin-bottom: 20px;
+}
+@media only screen and (max-width: 800px) {
+    .content-container{
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .content-container{
+        width: 100%;
+    }
 }

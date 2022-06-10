@@ -16,29 +16,28 @@
     width: 130px;
     height: 40px;
     background: #000000;
-    color: #fff;
-    border: #bfbfbf solid 2px;
+    color: #01F19B;
+    border: #01F19B solid 2px;
     border-radius: 5px;
     cursor: pointer;
+    transition: 0.5s;
 }
 .box-bar .btn-ars{
     width: 130px;
     height: 40px;
     background: #000000;
-    color: #fff;
-    border: #bfbfbf solid 2px;
+    color: #01A9F1;
+    border: #01A9F1 solid 2px;
     border-radius: 5px;
     cursor: pointer;
+    transition: 0.5s;
 }
-.search{
-    width: 250px;
-    height: 40px;
-    border: none;
-    background: #000000;
-    color: #fff;
-    margin-right: 10px;
-    padding: 5px;
-    border: #bfbfbf solid 2px;
-    border-radius: 5px;
-    box-sizing: border-box;
+.btn-ars:hover{
+    transform: scale(1.05);
+}
+.btn-reg:hover{
+    transform: scale(1.05);
+}
+@media only screen and (max-width: 600px) {
+
 }

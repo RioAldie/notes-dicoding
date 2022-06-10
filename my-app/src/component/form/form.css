@@ -1,7 +1,6 @@
 .form-container{
     width: 50%;
     height: 100vh;
-    border: solid 1px white;
     margin-top: 20px;
     display: flex;
     flex-direction: column;
@@ -46,13 +45,24 @@
 }
 .form-container form .btn-save{
     width: 90%;
-    height: 40px;
+    height: 50px;
     font-size: 18px;
     font-family: sans-serif;
     font-style: normal;
     font-weight: 500;
-    color: #fff;
+    color: #9AFAF4;
     text-align: center;
     background: none;
-    border: solid 1px white;
+    border: solid 2px #9AFAF4;
+    cursor: pointer;
+    transition: 0.5s;
+    border-radius: 5px;
+}
+.btn-save:hover{
+    transform: scale(1.05);
+}
+@media only screen and (max-width: 600px) {
+    .form-container{
+        height: 70vh;
+    }
 }

@@ -5,3 +5,15 @@
     flex-direction: row;
     overflow: hidden;
 }
+@media only screen and (max-width: 800px) {
+    .body{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .body{
+        flex-direction: column;
+        align-items: center;
+    }
+}

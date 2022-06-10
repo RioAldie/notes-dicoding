@@ -10,15 +10,15 @@ export default function Form(){
     const [note, setNote] = useState({});
     const {data, setData} = useContext(DataCtx);
     const {datachange, setDatachange} = useContext(ChangeCtx);
-    const initialData = getInitialData();
     const handleNote = (e) =>{
         e.preventDefault();
-
+        const getdate = new Date().toLocaleDateString();
+       
         const newdata = {
             id: new Date().getTime(),
             title: title,
             body: content,
-            createdAt: new Date(),
+            createdAt: getdate,
             archived: false
         };
         setTimeout(()=>{

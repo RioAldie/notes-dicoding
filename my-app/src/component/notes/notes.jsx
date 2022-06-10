@@ -47,25 +47,24 @@ const BoxContent = (props) =>{
     if(content === 'arsip'){
         return (
             <div className="box-content">
-            <h3>Catatan Arsip</h3>
-            <div className='list-content'>
-            {   
-                handleListContent(true)
-            }
-            </div>
+                <h3>Catatan Arsip</h3>
+                <div className='list-content'>
+                {   
+                    handleListContent(true)
+                }
+                </div>
             </div>
         )
     }
     return(
         <div className="box-content">
-        <h3>Catatan Aktif</h3>
-        <div className='list-content'>
-            {
-                handleListContent(false)
-            }
-            
-        </div>
-            
+            <h3>Catatan Aktif</h3>
+            <div className='list-content'>
+                {
+                    handleListContent(false)
+                }
+                
+            </div>
         </div>
     )
 }
