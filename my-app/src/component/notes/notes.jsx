@@ -17,21 +17,23 @@ const BoxContent = (props) =>{
     const {data,setData} = useContext(DataCtx);
     const [datanote, setDatanote] = useState(data);
     const handleListContent =(archived) =>{
-        if(data.length < 1){
-            return <NullContent/>
-        }
-        console.log(data.length);
         if(archived){
-             return  datanote.map((data)=>{
+            if(data.length < 1){
+                return <NullContent/>
+            }
+             return  data.map((data)=>{
                 if(data.archived){
-                    return(<Note key={data.id}title={data.title} body={data.body} archived={data.archived} date={data.createdAt}/>)
+                    return(<Note key={data.id}title={data.title} body={data.body} _id={data.id} archived={data.archived} date={data.createdAt}/>)
                 }
             })
         }
         if(!archived){
+            if(data.length < 1){
+                return <NullContent/>
+            }
             return  datanote.map((data)=>{
                 if(!data.archived){
-                    return(<Note key={data.id}title={data.title} body={data.body} archived={data.archived} date={data.createdAt}/>)
+                    return(<Note key={data.id}title={data.title} body={data.body} _id={data.id} archived={data.archived} date={data.createdAt}/>)
                 }
             })
         }

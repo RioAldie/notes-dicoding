@@ -4,12 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import DataCtxProvider from './context/DataContext';
+import ChangeCtxProvider from './context/ChangeContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <DataCtxProvider>
-      <App />
+      <ChangeCtxProvider>
+         <App />
+      </ChangeCtxProvider>
     </DataCtxProvider>
   </React.StrictMode>
 );

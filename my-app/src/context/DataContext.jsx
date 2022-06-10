@@ -4,7 +4,7 @@ import { getInitialData } from "../utils/db"
 const DataDefaultValue = getInitialData()
 
 const DataCtxValue = {
-    data: [],
+    data: DataDefaultValue,
     setData: state => {}
 }
 

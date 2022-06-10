@@ -1,18 +1,20 @@
 
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { ChangeCtx } from '../../context/ChangeContext';
 import Form from '../form/form';
 import Notes from '../notes/notes';
 import './body.css';
 
 export default function Body(){
-    const [datachange, setDatachange] = useState(false);
+    const {datachange} = useContext(ChangeCtx);
+    const [isChange, setIsChange] = useState(datachange);
     useEffect(()=>{
-        setDatachange(datachange);
-    },[datachange])
+        setIsChange(isChange);
+    },[isChange,datachange])
     return(
         <>
             <section className="body">
-            <Form datachange={datachange} setDatachange={setDatachange}/>
+            <Form />
             <Notes/>
             </section>
         </>

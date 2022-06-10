@@ -1,15 +1,16 @@
 import { useContext, useEffect, useState } from 'react';
+import { ChangeCtx } from '../../context/ChangeContext';
 import { DataCtx } from '../../context/DataContext';
 import { getInitialData } from '../../utils/db';
 import './form.css';
 
-export default function Form(props){
+export default function Form(){
     const [title,setTitle] = useState('');
     const [content, setContent] = useState('');
     const [note, setNote] = useState({});
     const {data, setData} = useContext(DataCtx);
+    const {datachange, setDatachange} = useContext(ChangeCtx);
     const initialData = getInitialData();
-    const {datachange,setDatachange} = props;
     const handleNote = (e) =>{
         e.preventDefault();
 
@@ -17,7 +18,7 @@ export default function Form(props){
             id: new Date().getTime(),
             title: title,
             body: content,
-            date: new Date(),
+            createdAt: new Date(),
             archived: false
         };
         setTimeout(()=>{
